@@ -1,0 +1,324 @@
+/********************/
+/*  general styles  */
+/********************/
+:root {
+    --primary: #1B1B1B;
+    --secondary: #F6F6F6;
+    --thrid: #242424;
+    --gray: #383838;
+    --blue: #1645BA;
+    --blue2: #226DE2;
+    --green: #84CC83;
+    --green2: #00B050;
+    --green3: #00b04f80;
+    --pink: #CA6CDC;
+    --orange: #E18E77;
+    --purple: #A285EB;
+    font-size: 13px;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+}
+body {
+    display: block;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--primary);
+    background-image: radial-gradient(var(--thrid) .15vw, transparent 0);
+    background-size: 2.5vw 2.5vw;
+    color: var(--secondary);
+}
+/********************/
+/*    typografy     */
+/********************/
+@font-face {
+    font-family: 'Machina';
+    src: local('PP Neue Machina Inktrap Light'),
+    url(font/PPNeueMachina-InktrapLight.otf) format("opentype");
+}
+@font-face {
+    font-family: 'MachinaUbold';
+    src: local('PP Neue Machina Inktrap Ubold'),
+    url(font/PPNeueMachina-InktrapUltrabold.otf) format("opentype");
+}
+@font-face {
+    font-family: 'Inter';
+    src: local('Inter'),
+    url(font/Inter-Regular.ttf) format('ttf');
+}
+@font-face {
+    font-family: 'Jetbrains';
+    src: local('Jetbrains Mono Light'),
+    url(font/JetBrainsMono-Light.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'JetbrainsBold';
+    src: local('Jetbrains Mono Bold'),
+    url(font/JetBrainsMono-Bold.ttf) format('truetype');
+}
+/********************/
+/*      navbar      */
+/********************/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 7%;
+    text-align: center;
+    background-color: var(--thrid);
+}
+.navbar-logo {
+    font-family: 'MachinaUbold';
+    font-size: 1vw;
+    text-align: left;
+    width: 33.333333%;
+    padding: 0 2vw;
+}
+.navbar-logo > span {
+    text-transform: uppercase;
+    font-family: 'Inter';
+    font-size: .75vw;
+}
+.navbar-title {
+    font-size: .75vw;
+    width: 33.333333%;
+}
+.navbar-title > span {
+    font-family: 'MachinaUbold';
+}
+.navbar-user {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 1vw;
+    width: 33.333333%;
+    padding: 0 2vw;
+}
+.navbar-user > i:first-child {
+    display: block;
+    padding: .5vw;
+    background: #1CD8D2;
+    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);
+    background: linear-gradient(to right, #93EDC7, #1CD8D2);
+    margin-right: .5vw;
+    color: var(--primary);
+}
+#navbar-user-check {
+    display: none;
+}
+.navbar-user > label {
+    cursor: pointer;
+    font-size: 1vw;
+}
+.navbar-user > #navbar-user-check:checked ~ .credits {
+    display: block;
+}
+.navbar-user > .credits {
+    position: absolute;
+    display: none;
+    user-select: none; 
+    font-size: .75vw;
+    background-color: var(--gray);
+    top: 8vh;
+    text-align: right;
+    padding: 1vw 2vw;
+    z-index: 99;
+}
+.navbar-user > .credits .credits-info {
+    opacity: .4;
+}
+.navbar-user > .credits p a {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    margin: 0 var(--spacing, 0px);
+    transition: margin 0.25s;
+}
+.navbar-user > .credits p a svg {
+    width: 100%;
+    height: 1.75vw;
+    position: absolute;
+    left: 80%;
+    bottom: 0;
+    transform: translate(-50%, 7px) translateZ(0);
+    fill: none;
+    stroke: var(--stroke, transparent);
+    stroke-linecap: round;
+    stroke-width: 2px;
+    stroke-dasharray: var(--offset, 69px) 278px;
+    stroke-dashoffset: 361px;
+    transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+}
+.navbar-user > .credits p a:hover {
+    --spacing: 5px;
+    --stroke: var(--blue2);
+    --stroke-delay: .1s;
+    --offset: 180px;
+}
+/********************/
+/*        tab       */
+/********************/
+.warpper{
+    position: relative;
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    height: 93%;
+    overflow: hidden;
+}
+.radio{
+    display:none;
+}
+.tabs {
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+    top: 2%;
+    width: 25%;
+    height: 5%;
+    border-radius: 2rem;
+    background-color: var(--thrid);
+}
+.tab{
+    display: flex;
+    position: relative;
+    width: 33.333333%;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary);
+    opacity: 0.2;
+    font-size: .75vw;
+}
+.tab > i {
+    margin-right: .5vw;
+    font-size: 1vw;
+    display: none;
+}
+.panels{
+    position: absolute;
+    display: block;
+    top: 9%;
+    width:100%;
+    height: 91%;
+}
+.panel{
+    display:none;
+    width: 100%;
+    height: 100%;
+    padding: 3% 15%;
+    animation: fadein 1s;
+}
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel{
+    display:block;
+}
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab{
+    background:var(--gray);
+    color:var(--secondary);
+    opacity: 1;
+}
+#one:checked ~ .tabs #one-tab i,
+#two:checked ~ .tabs #two-tab i,
+#three:checked ~ .tabs #three-tab i{
+    display: block;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+/********************/
+/*     devices      */
+/********************/
+#one-panel > .container {
+    width: 100%;
+    height: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 5vw;
+}
+.card {
+    display: block;
+    width: 100%;
+    height: 40vh;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    background: var(--thrid);
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+}
+.card-icon > i {
+    display: block;
+    border: 1px solid var(--gray);
+    padding: 2vw;
+    font-size: 2.5vw;
+    border-radius: 3rem;
+    transition: all 0.3s;
+}
+.card-title {
+    display: block;
+    width: 100%;
+    padding: 4.5vh 0 0 0;
+    transition: all 0.3s;
+    transform: translateY(-3vh);
+}
+.card-title > .card-name-device {
+    display: block;
+    font-size: 1.25vw;
+    font-family: 'MachinaUbold';
+}
+.card-title > .card-device {
+    text-transform: uppercase;
+    font-size: .6vw;
+    letter-spacing: .2vw;
+    opacity: 0.3;
+}
+.card-title > .card-state {
+    display: block;
+    background-color: var(--green3);
+    padding: .5vw 0;
+    margin: 6.75vh 0 0 0;
+    transform: translateX(100%);
+    transition: all 0.3s;
+    transition-delay: 0.3s;
+}
+.card-title > .card-state > span {
+    font-family: 'JetbrainsBold';
+    font-size: 1vw;
+    text-transform: uppercase;
+}
+
+.card:hover .card-title {
+    transform: translateY(-10vh);
+    background-color: #ffffff0e;
+    backdrop-filter: blur(10px);
+
+}
+.card:hover > .card-icon i {
+    background-color: var(--blue2);
+    box-shadow: 0px 0px 30px -10px var(--blue2);
+}
+.card:hover .card-state {
+    transform: translateX(0);
+}
